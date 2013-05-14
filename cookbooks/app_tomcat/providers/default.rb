@@ -262,8 +262,8 @@ action :setup_vhost do
     log "  root_war not defined, setting apache docroot to #{app_root}"
     apache_docroot = "#{app_root}"
   else
-    log "  root_war defined, setting apache docroot to #{app_root}/ROOT"
-    apache_docroot = "#{app_root}/ROOT"
+    log "  root_war defined, setting apache docroot to #{app_root}/current/ROOT"
+    apache_docroot = "#{app_root}/current/ROOT"
   end
 
   log "  Configuring apache vhost for tomcat"

@@ -1,0 +1,48 @@
+{
+  "name": "app_whosay_www",
+  "description": "Installs the tomcat application server.",
+  "long_description": "= DESCRIPTION:\n\nOverride the apache tomcat install.\n\n= REQUIREMENTS:\n\n= ATTRIBUTES: \n\nSee metadata.rb \n\n= USAGE:\n\n * blah\n",
+  "maintainer": "RightScale, Inc.",
+  "maintainer_email": "support@rightscale.com",
+  "license": "Copyright RightScale, Inc. All rights reserved.",
+  "platforms": {
+  },
+  "dependencies": {
+    "app": ">= 0.0.0",
+    "repo": ">= 0.0.0",
+    "rightscale": ">= 0.0.0",
+    "app_tomcat": ">= 0.0.0"
+  },
+  "recommendations": {
+  },
+  "suggestions": {
+  },
+  "conflicting": {
+  },
+  "providing": {
+  },
+  "replacing": {
+  },
+  "attributes": {
+    "app_whosay_www/short/vhost": {
+      "display_name": "vhost for short-codes",
+      "description": "The vhost name for the shortcode url",
+      "required": "required",
+      "default": "",
+      "recipes": [
+        "app_whosay_www::setup_vhost"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string"
+    }
+  },
+  "groupings": {
+  },
+  "recipes": {
+    "app_whosay_www::setup_vhost": "Sets up the www app vhosts: www + sayly"
+  },
+  "version": "13.3.0"
+}

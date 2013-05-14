@@ -1,0 +1,26 @@
+NameVirtualHost *:<%=@params[:vhost_port]%>
+<VirtualHost *:<%=@params[:vhost_port]%>>
+
+     ServerName <%=@params[:server_name]%>
+
+     ProxyPass /health.jsp ajp://localhost:8009/health.jsp
+     ProxyPass /dbhealth.jsp ajp://localhost:8009/dbhealth.jsp
+     ProxyPass /404-www.html ajp://localhost:8009/404-www.html
+     ProxyPass / ajp://localhost:8009/short-url/
+     ProxyPassReverse / ajp://localhost:8009/short-url/
+
+     # Setup the logs in the appropriate directory
+     CustomLog <%=@params[:apache_log_dir]%>/<%=@params[:server_name]%>-access_log combined
+     ErrorLog  <%=@params[:apache_log_dir]%>/<%=@params[:server_name]%>-error_log
+
+     LogLevel warn
+
+     # Deflate
+     AddOutputFilterByType DEFLATE text/html text/plain text/xml application/xml application/xhtml+xml text/javascript text/css application/x-javascript
+     BrowserMatch ^Mozilla/4 gzip-only-text/html
+     BrowserMatch ^Mozilla/4.0[678] no-gzip
+     BrowserMatch bMSIE !no-gzip !gzip-only-text/html
+
+     SetEnvIf User-Agent ".*MSIE.*" nokeepalive ssl-unclean-shutdown downgrade-1.0 force-response-1.0
+
+</VirtualHost>
