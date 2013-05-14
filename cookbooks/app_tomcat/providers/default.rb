@@ -253,6 +253,13 @@ action :setup_vhost do
     only_if { ::File.exists?("/etc/httpd/conf.d/ssl.conf") }
   end
 
+  log "  removing 000-default"
+  file "/etc/apache2/sites-enabled/000-default" do
+    action :delete
+    backup false
+    only_if { ::File.exists?("/etc/apache2/sites-enabled/000-default") }
+  end
+
   log "  Generating new apache ports.conf"
   # See cookbooks/app/definitions/app_add_listen_port.rb for the "app_add_listen_port" definition.
   app_add_listen_port port
