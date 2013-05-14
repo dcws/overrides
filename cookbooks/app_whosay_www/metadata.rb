@@ -21,5 +21,4 @@ attribute "app_whosay_www/short/vhost",
   :display_name => "vhost for short-codes",
   :description => "The vhost name for the shortcode url",
   :required => "required",
-  :default => "changeme",
   :recipes => [ "app_whosay_www::setup_vhost" ]
