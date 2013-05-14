@@ -23,7 +23,7 @@
     apache_log_dir node[:apache][:log_dir]
   end
 
-  web_app "z_http-#{port}-#{node[:web_apache][:server_name]}.vhost" do
+  web_app "z_http-#{port}-#{node[:app_whosay_www][:short]}.vhost" do
     template 'short_vhost.erb'
     cookbook 'app_whosay_www'
     docroot apache_docroot
