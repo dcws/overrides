@@ -13,22 +13,22 @@
 
   log "  Configuring apache vhost for www"
   # See https://github.com/rightscale/cookbooks/blob/master/apache2/definitions/web_app.rb for the "web_app" definition.
-  web_app "http-#{port}-#{node[:web_apache][:server_name]}.vhost" do
+  web_app "http-#{port}-#{node[:app_whosay_www][:server_name]}.vhost" do
     template 'www_vhost.erb'
     cookbook 'app_whosay_www'
     docroot apache_docroot
     vhost_port port.to_s
-    server_name node[:web_apache][:server_name]
+    server_name node[:app_whosay_www][:server_name]
     allow_override node[:web_apache][:allow_override]
     apache_log_dir node[:apache][:log_dir]
   end
 
-  web_app "z_http-#{port}-#{node[:app_whosay_www][:short]}.vhost" do
+  web_app "z_http-#{port}-#{node[:app_whosay_www][:short_name]}.vhost" do
     template 'short_vhost.erb'
     cookbook 'app_whosay_www'
     docroot apache_docroot
     vhost_port port.to_s
-    server_name node[:web_apache][:server_name]
+    server_name node[:app_whosay_www][:short_name]
     allow_override node[:web_apache][:allow_override]
     apache_log_dir node[:apache][:log_dir]
   end

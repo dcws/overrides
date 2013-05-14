@@ -17,8 +17,14 @@ depends "app_tomcat"
 recipe "app_whosay_www::setup_vhost",
   "Sets up the www app vhosts: www + sayly"
 
-attribute "app_whosay_www/short",
+attribute "app_whosay_www/short_name",
   :display_name => "vhost for short-codes",
   :description => "The vhost name for the shortcode url",
+  :required => "required",
+  :recipes => [ "app_whosay_www::setup_vhost" ]
+
+attribute "app_whosay_www/server_name",
+  :display_name => "vhost for main www site",
+  :description => "The vhost name for the web site",
   :required => "required",
   :recipes => [ "app_whosay_www::setup_vhost" ]
