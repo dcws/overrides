@@ -6,8 +6,8 @@
 # if applicable, other agreements such as a RightScale Master Subscription Agreement.
 
 # Setup apache virtual host and corresponding tomcat configs
-  port = new_resource.port
-  app_root = new_resource.root
+  port = node[:app][:port]
+  app_root = node[:app][:root]
   version = node[:app][:version].to_i
   apache_docroot = "#{app_root}/current/ROOT"
 
