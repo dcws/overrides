@@ -24,7 +24,7 @@
   "replacing": {
   },
   "attributes": {
-    "app_whosay_www/short/vhost": {
+    "app_whosay_www/short": {
       "display_name": "vhost for short-codes",
       "description": "The vhost name for the shortcode url",
       "required": "required",
