@@ -266,17 +266,17 @@ action :setup_vhost do
     apache_docroot = "#{app_root}/current/ROOT"
   end
 
-  log "  Configuring apache vhost for tomcat"
-  # See https://github.com/rightscale/cookbooks/blob/master/apache2/definitions/web_app.rb for the "web_app" definition.
-  web_app "http-#{port}-#{node[:web_apache][:server_name]}.vhost" do
-    template 'apache_mod_jk_vhost.erb'
-    cookbook 'app_tomcat'
-    docroot apache_docroot
-    vhost_port port.to_s
-    server_name node[:web_apache][:server_name]
-    allow_override node[:web_apache][:allow_override]
-    apache_log_dir node[:apache][:log_dir]
-  end
+  # log "  Configuring apache vhost for tomcat"
+  # # See https://github.com/rightscale/cookbooks/blob/master/apache2/definitions/web_app.rb for the "web_app" definition.
+  # web_app "http-#{port}-#{node[:web_apache][:server_name]}.vhost" do
+  #   template 'apache_mod_jk_vhost.erb'
+  #   cookbook 'app_tomcat'
+  #   docroot apache_docroot
+  #   vhost_port port.to_s
+  #   server_name node[:web_apache][:server_name]
+  #   allow_override node[:web_apache][:allow_override]
+  #   apache_log_dir node[:apache][:log_dir]
+  # end
 
   # Apache server restart
   service "apache2" do
