@@ -141,7 +141,7 @@ action :setup_vhost do
     mode "0644"
     cookbook 'app_tomcat'
     variables(
-      :doc_root => app_root,
+      :doc_root => app_root + "/current/ROOT",
       :app_port => tomcat_port.to_s
     )
   end
