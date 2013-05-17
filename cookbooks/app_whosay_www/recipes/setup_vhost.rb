@@ -18,7 +18,7 @@
     cookbook 'app_whosay_www'
     docroot apache_docroot
     vhost_port port.to_s
-    server_name "www.#{node[:app_whosay_www][:domain_name]"
+    server_name "www.#{node[:app_whosay_www][:domain_name]}"
     allow_override node[:web_apache][:allow_override]
     apache_log_dir node[:apache][:log_dir]
   end
