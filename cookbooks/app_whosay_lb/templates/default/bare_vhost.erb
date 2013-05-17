@@ -1,0 +1,6 @@
+NameVirtualHost *:<%=@params[:vhost_port]%>
+<VirtualHost *:<%=@params[:vhost_port]%>>
+     ServerName <%=@params[:server_name]%>
+     RewriteEngine On
+     RewriteRule ^(.*)$ http://www.<%=@params[:server_name]%>$1 [NC,R=301,L]
+</VirtualHost>

@@ -21,10 +21,16 @@ attribute "app_whosay_www/short_name",
   :display_name => "vhost for short-codes",
   :description => "The vhost name for the shortcode url",
   :required => "required",
-  :recipes => [ "app_whosay_www::setup_vhost" ]
+  :recipes => [ "app_whosay_lb::setup_vhost" ]
 
 attribute "app_whosay_www/domain_name",
   :display_name => "domain (without www) for main www site",
   :description => "The domain name for the web site",
   :required => "required",
-  :recipes => [ "app_whosay_www::setup_vhost" ]
+  :recipes => [ "app_whosay_lb::setup_vhost" ]
+
+attribute "app_whosay_www/combo_name",
+  :display_name => "the name of the combo server",
+  :description => "the name of the combo server",
+  :required => "required",
+  :recipes => [ "app_whosay_lb::setup_vhost" ]

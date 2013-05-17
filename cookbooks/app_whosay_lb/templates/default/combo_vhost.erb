@@ -1,0 +1,8 @@
+NameVirtualHost *:<%=@params[:vhost_port]%>
+<VirtualHost *:<%=@params[:vhost_port]%>>
+     ServerName <%=@params[:server_name]%>
+     RewriteEngine On
+     RewriteRule ^/combo.*$ http://127.0.0.1:85%{REQUEST_URI} [P,QSA,L]
+     RewriteRule ^/css.*$ http://127.0.0.1:85%{REQUEST_URI} [P,QSA,L]
+     RewriteRule .*  - [R=404,L]
+</VirtualHost>

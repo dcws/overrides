@@ -1,5 +1,5 @@
 {
-  "name": "app_whosay_www",
+  "name": "app_whosay_lb",
   "description": "Installs the tomcat application server.",
   "long_description": "= DESCRIPTION:\n\nOverride the apache tomcat install.\n\n= REQUIREMENTS:\n\n= ATTRIBUTES: \n\nSee metadata.rb \n\n= USAGE:\n\n * blah\n",
   "maintainer": "RightScale, Inc.",
@@ -29,7 +29,7 @@
       "description": "The vhost name for the shortcode url",
       "required": "required",
       "recipes": [
-        "app_whosay_www::setup_vhost"
+        "app_whosay_lb::setup_vhost"
       ],
       "choice": [
 
@@ -42,7 +42,20 @@
       "description": "The domain name for the web site",
       "required": "required",
       "recipes": [
-        "app_whosay_www::setup_vhost"
+        "app_whosay_lb::setup_vhost"
+      ],
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string"
+    },
+    "app_whosay_www/combo_name": {
+      "display_name": "the name of the combo server",
+      "description": "the name of the combo server",
+      "required": "required",
+      "recipes": [
+        "app_whosay_lb::setup_vhost"
       ],
       "choice": [
 
