@@ -14,7 +14,7 @@ depends "repo"
 depends "rightscale"
 depends "app_tomcat"
 
-recipe "app_whosay_www::setup_vhost",
+recipe "app_whosay_lb::setup_vhost",
   "Sets up the www app vhosts: www + sayly"
 
 attribute "app_whosay_www/short_name",

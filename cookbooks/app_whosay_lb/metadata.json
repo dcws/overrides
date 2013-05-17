@@ -67,7 +67,7 @@
   "groupings": {
   },
   "recipes": {
-    "app_whosay_www::setup_vhost": "Sets up the www app vhosts: www + sayly"
+    "app_whosay_lb::setup_vhost": "Sets up the www app vhosts: www + sayly"
   },
   "version": "13.3.0"
 }
